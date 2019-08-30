@@ -1,7 +1,7 @@
 <template>
   <div class="='wrap'">
       <div class="head">
-            <router-link v-for="(item,index) in list" :key="index" :to="item.path">{{item.tit}}</router-link>
+            <router-link v-for="(item,index) in list" :key="index" :to="item.path" tag='span'>{{item.tit}}</router-link>{{curIndex}}
       </div>
       <div class="main">
         <router-view></router-view>
@@ -25,9 +25,12 @@ export default {
       },{
         tit:'书架',
         path:'/book'
-      }]
+      }],
     }
   },
+  methods: {
+   
+  }
 }
 </script>
 
@@ -42,15 +45,20 @@ export default {
   width: 100%;
   height: 50px;
   display: flex;
+  background: #333333;
     span{
     flex: 1;
     line-height: 50px;
     text-align: center;
+    background: #454545;
   }
 }
 .main{
   width: 100%;
   flex: 1;
 
+}
+.router-link-active{
+  color:white
 }
 </style>
