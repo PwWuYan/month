@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
+  <div class="home">
+    <div class="top"><swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback">
     <swiper-slide><img src="../../../src/img/1.jpg" alt=""></swiper-slide>
     <swiper-slide><img src="../../../src/img/2.jpg" alt=""></swiper-slide>
     <swiper-slide><img src="../../../src/img/3.jpg" alt=""></swiper-slide>
@@ -9,6 +9,11 @@
     <swiper-slide><img src="../../../src/img/6.jpg" alt=""></swiper-slide>
     <swiper-slide><img src="../../../src/img/7.jpg" alt=""></swiper-slide>
   </swiper>
+  </div>
+  <div class="center">
+    <button>免费专区</button><button>女频精选</button>
+  </div>
+  <div class="bottom"></div>
   </div>
 </template>
 
@@ -24,6 +29,24 @@ components: {
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
+.home{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction:column;
+  .top{
+    width: 100%;
 
+  }
+  .center{
+    width: 100%;
+    display: flex; 
+    justify-content: center;
+    button{
+      width: 40%;
+  }
+
+  }
+}
 </style>
