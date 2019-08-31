@@ -1,7 +1,7 @@
 <template>
   <div class="='wrap'">
       <div class="head">
-            <router-link v-for="(item,index) in list" :key="index" :to="item.path" tag='span'>{{item.tit}}</router-link>{{curIndex}}
+            <router-link v-for="(item,index) in list" :key="index" :to="item.path" tag='span'>{{item.tit}}</router-link>
       </div>
       <div class="main">
         <router-view></router-view>
@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 export default {
   data() {
     return {
@@ -29,8 +30,11 @@ export default {
     }
   },
   methods: {
-   
-  }
+    ...mapActions(['getList'])
+  },
+  created() {
+    this.getList()
+  },
 }
 </script>
 

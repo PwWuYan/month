@@ -45,6 +45,9 @@ components: {
     justify-content: center;
     button{
       width: 40%;
+      height: 50px;
+      border: 1px solid #ccc;
+      outline: none;
   }
 
   }
