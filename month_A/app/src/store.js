@@ -6,14 +6,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
     state: {
         list: [],
-        contList: []
+        contList: [],
+        curIndex: 0
     },
     mutations: {
         setList(state, payload) {
             state.list = payload;
         },
-        setContList(state, payload) {
-            state.contList = payload;
+        setCurIndex(state, payload) {
+            state.curIndex = payload;
+            state.contList = state.list['ranklist' + payload];
+            console.log(state.contList)
         }
     },
     actions: {

@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions,mapMutations} from 'vuex'
 export default {
   data() {
     return {
@@ -30,10 +30,12 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['getList'])
+    ...mapActions(['getList']),
+    ...mapMutations(['setCurIndex'])
   },
   created() {
     this.getList()
+    this.setCurIndex(0)
   },
 }
 </script>
@@ -49,12 +51,12 @@ export default {
   width: 100%;
   height: 50px;
   display: flex;
-  background: #333333;
+  background: #333;
     span{
     flex: 1;
     line-height: 50px;
     text-align: center;
-    background: #454545;
+    color: #a1a1a1;
   }
 }
 .main{
@@ -62,7 +64,8 @@ export default {
   flex: 1;
 
 }
-.router-link-active{
-  color:white
+.head .router-link-active{
+      background-color: #454545;
+      color:#f2f2f2;
 }
 </style>
