@@ -1,7 +1,10 @@
 <template>
   <div class="classify">
     <div class="top">
-      <span v-for="(item,index) in list" :key={index}>{{item}}</span>
+      <span v-for="(item,index) in list" :key={index} @click="hanleClick(index)">{{item}}</span>
+    </div>
+    <div class="cont">
+      {{contList}}
     </div>
       
   </div>

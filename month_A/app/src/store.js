@@ -5,12 +5,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        list: []
+        list: [],
+        contList: []
     },
     mutations: {
         setList(state, payload) {
             state.list = payload;
-
+        },
+        setContList(state, payload) {
+            state.contList = payload;
         }
     },
     actions: {
