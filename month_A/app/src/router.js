@@ -2,12 +2,12 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-
-export default new Router({
+let router = new Router({
     routes: [{
         path: '/',
         component: () =>
             import ('./views/index'),
+        redirect: '/home',
         children: [{
             path: '/home',
             component: () =>
@@ -25,5 +25,13 @@ export default new Router({
             component: () =>
                 import ('./views/book/index.vue')
         }]
+    }, {
+        path: '/detail',
+        component: () =>
+            import ('./views/detail/index.vue')
+
+
     }]
 })
+
+export default router

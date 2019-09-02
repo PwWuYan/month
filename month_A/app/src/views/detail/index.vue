@@ -1,28 +1,44 @@
 <template>
   <div>
-      <dl v-for="(item,index) in readList" :key="index">
-        <dt></dt>
-        <dd>
-            <h3>《{{item.bookName}}》</h3>
+     <dl
+      v-for="(item,index) in detailList"
+      :key="index"
+    >
+      <img :src="item.coverUrl" alt />
+      <dt> <img src="" alt=""> </dt>
+      <dd>
+        <h3>《{{item.bookName}}》</h3>
         <p>作者：{{item.authorName}}</p>
         <p>最新：{{item.updteChapterName}}</p>
         <p class="text">简介：{{item.description}}</p>
-        </dd>
-       
-      </dl>
+      </dd>
+      <button class="join" @click='handleAdd(item.bookId)'>+书架</button>
+     
+    </dl>
+  
   </div>
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {mapState,mapMutations} from 'vuex';
+import axios from 'axios'
 export default {
-  computed: {
-    ...mapState(['readList'])
-  },
+    computed: {
+        ...mapState(['curIndex','detailList'])
+    },
+    methods: {
+        ...mapMutations(['setDetailList','setReadList']),
+        handleAdd(id){
+         this.setReadList(id)
+        }
+    },
+    created() {
+        this.setDetailList(this.$route.query.id)
+    },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang='scss' scoped>
 dl {
   position: relative;
   width: 100%;
@@ -64,4 +80,5 @@ dl {
   }
 
 }
+
 </style>

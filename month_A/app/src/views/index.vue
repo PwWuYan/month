@@ -35,7 +35,6 @@ export default {
   },
   created() {
     this.getList()
-    this.setCurIndex(0)
   },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="classify">
     <div class="top">
-      <span v-for="(item,index) in list" :key={index} @click="handleClick(index)" :class="ind==index?'spanActive':''">{{item}}</span>
+      <span  v-for="(item,index) in list" :key="index" @click="handleClick(index)" :class="curIndex===index?'spanActive':''" > {{item}}</span>
     </div>
     <div class="cont">
       <item></item>
@@ -15,23 +15,21 @@ import item from '../../components/item'
 export default {
   data() {
     return {
-      ind:0
+      list:['热门','新书','免费','完本'],
+      curIndex:0
     }
   },
   components:{
     item
   },
-  data() {
-    return {
-      list:['热门','新书','免费','完本']
-    }
-  },
+
   computed: {
     ...mapState(['setContList'])
   },
   methods: {
-    ...mapMutations(['setCurIndex','setContList']),
+    ...mapMutations(['setCurIndex']),
     handleClick(index){
+      this.curIndex=index;
       this.setCurIndex(index)
     }
   },
@@ -54,15 +52,16 @@ export default {
      line-height: 50px;
      font-size: 12px;
      background: #ccc;
+     &.spanActive{
+    background: red;
+    color:white
+  }
    }
   }
   .cont{
     flex: 1;
     width: 100%;
   }
-  .spanActive{
-    background: red;
-    color: white;
-  }
+ 
 }
 </style>
